@@ -5,31 +5,46 @@
   <title>Yusuf'un Ayakkabısı</title>
   <style>
     body {
-      background: linear-gradient(135deg, #ffe6b3, #fff);
+      margin: 0;
+      background: #fffbe6;
       font-family: 'Comic Sans MS', cursive;
       text-align: center;
-      padding: 50px;
       overflow: hidden;
     }
 
     h1 {
       font-size: 48px;
-      color: #ff6600;
+      margin-top: 40px;
+      color: #009900;
       animation: bounce 2s infinite;
     }
 
-    p {
+    button {
+      padding: 15px 30px;
+      background: #28a745;
+      border: none;
+      color: white;
       font-size: 20px;
-      color: #333;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    .chip {
+    .gaz {
       position: absolute;
-      width: 80px;
-      height: 80px;
-      background: url('https://i.imgur.com/J2m7GJN.png') no-repeat center center;
-      background-size: cover;
-      animation: floatChip 10s linear infinite;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #aaffaa, #009900);
+      border-radius: 50%;
+      animation: float 6s linear infinite;
+      opacity: 0.5;
+    }
+
+    .monster {
+      position: absolute;
+      width: 60px;
+      animation: floatMonster 5s linear infinite;
     }
 
     @keyframes bounce {
@@ -37,61 +52,52 @@
       50% { transform: translateY(-20px); }
     }
 
-    @keyframes floatChip {
-      0% {
-        top: 100%;
-        left: calc(100% * var(--i));
-        transform: rotate(0deg);
-      }
-      100% {
-        top: -100px;
-        left: calc(100% * var(--i));
-        transform: rotate(360deg);
-      }
+    @keyframes float {
+      0% { bottom: 0; left: 10%; transform: scale(0.8); }
+      100% { bottom: 100vh; left: 90%; transform: scale(1.2); }
+    }
+
+    @keyframes floatMonster {
+      0% { transform: translateY(0) rotate(0deg); top: 100%; }
+      100% { transform: translateY(-100vh) rotate(360deg); top: -100px; }
     }
 
     iframe {
-      margin-top: 30px;
-      width: 560px;
-      height: 315px;
-      border: 5px solid orange;
-      border-radius: 15px;
-    }
-
-    .not {
-      font-size: 14px;
-      margin-top: 20px;
-      color: gray;
+      margin-top: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #444;
     }
   </style>
 </head>
 <body>
 
-  <h1>👟 Yusuf'un Ayakkabısı</h1>
-  <p>Bu ayakkabılar 4 Monster içince breakdance yapar.</p>
-  <p>Beril "iğreniyorum" dese bile bu ayakkabı dans eder.</p>
+  <h1>Yusuf'un Ayakkabısı 👟</h1>
+  <p>Bu site Yusuf'un 48 saat giymiş ama hâlâ çorap giymemiş ayakkabısına adanmıştır.</p>
+  <button onclick="alert('Ay kokladın valla helal olsun be! 👃💀')">👃 Kokla ve Hayatta Kal</button>
 
-  <!-- DANS EDEN CİPS VİDEOSU -->
-  <iframe 
-    src="https://www.youtube.com/embed/ufEgjQ_-rJ0?autoplay=1&loop=1&playlist=ufEgjQ_-rJ0"
-    title="Dans Eden Cips"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
+  <!-- Gaz animasyonları -->
+  <div class="gaz" style="left: 20%; animation-delay: 0s;"></div>
+  <div class="gaz" style="left: 40%; animation-delay: 2s;"></div>
+  <div class="gaz" style="left: 60%; animation-delay: 4s;"></div>
+  <div class="gaz" style="left: 80%; animation-delay: 6s;"></div>
 
-  <p class="not">Yusuf’un ayakkabısı sabah 07:00’de enerjiyle şarj edilir.</p>
+  <!-- Monster kutusu uçuşuyor (YENİ GÖRSELLE) -->
+  <img src="https://www.cabuccoffee.com/site/sized/104609/2024/02/monsteeeer-1200x9000.webp" class="monster" style="left: 10%; animation-delay: 1s;">
+  <img src="https://www.cabuccoffee.com/site/sized/104609/2024/02/monsteeeer-1200x9000.webp" class="monster" style="left: 80%; animation-delay: 3s;">
 
-  <!-- CİPSLER -->
-  <script>
-    for (let i = 0; i < 10; i++) {
-      const chip = document.createElement("div");
-      chip.classList.add("chip");
-      chip.style.setProperty('--i', Math.random());
-      chip.style.left = Math.random() * 100 + '%';
-      chip.style.animationDuration = (5 + Math.random() * 5) + 's';
-      document.body.appendChild(chip);
-    }
-  </script>
+  <!-- Ayakkabı fotoğrafı -->
+  <img src="https://www.outdoorhaber.com/wp-content/uploads/2012/05/ayakkabi-bot-kokusu.jpg" width="300" alt="Kokulu Ayakkabı" style="margin-top: 50px; border-radius: 20px; box-shadow: 0 0 20px green;">
+
+  <!-- ÇİPS VİDEOSU embed (AUTOPLAY & LOOP) -->
+  <div>
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/ufEgjQ_-rJ0?autoplay=1&loop=1&playlist=ufEgjQ_-rJ0"
+      title="Yusuf cips yerken"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
 
 </body>
 </html>
