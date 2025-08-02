@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yusuf'un Ayakkabısı</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6b3, #fff);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #ff6600;
+      animation: bounce 2s infinite;
+    }
+
+    p {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .chip {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: url('https://i.imgur.com/J2m7GJN.png') no-repeat center center;
+      background-size: cover;
+      animation: floatChip 10s linear infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes floatChip {
+      0% {
+        top: 100%;
+        left: calc(100% * var(--i));
+        transform: rotate(0deg);
+      }
+      100% {
+        top: -100px;
+        left: calc(100% * var(--i));
+        transform: rotate(360deg);
+      }
+    }
+
+    iframe {
+      margin-top: 30px;
+      width: 560px;
+      height: 315px;
+      border: 5px solid orange;
+      border-radius: 15px;
+    }
+
+    .not {
+      font-size: 14px;
+      margin-top: 20px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>👟 Yusuf'un Ayakkabısı</h1>
+  <p>Bu ayakkabılar 4 Monster içince breakdance yapar.</p>
+  <p>Beril "iğreniyorum" dese bile bu ayakkabı dans eder.</p>
+
+  <!-- DANS EDEN CİPS VİDEOSU -->
+  <iframe 
+    src="https://www.youtube.com/embed/ufEgjQ_-rJ0?autoplay=1&loop=1&playlist=ufEgjQ_-rJ0"
+    title="Dans Eden Cips"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+
+  <p class="not">Yusuf’un ayakkabısı sabah 07:00’de enerjiyle şarj edilir.</p>
+
+  <!-- CİPSLER -->
+  <script>
+    for (let i = 0; i < 10; i++) {
+      const chip = document.createElement("div");
+      chip.classList.add("chip");
+      chip.style.setProperty('--i', Math.random());
+      chip.style.left = Math.random() * 100 + '%';
+      chip.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(chip);
+    }
+  </script>
+
+</body>
+</html>
